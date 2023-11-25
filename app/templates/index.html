@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+</head>
+<body>
+    <h1>Lista de Funcionários</h1>
+    <ul>
+        {% for i in funcionario %}
+            <li>{{ i.nome_funcionario }}</li>
+            <li>{{ i.cpf_funcionario }}</li>
+            <li>{{ i.email_funcionario }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('adicionar') }}">Adicionar Funcionário</a>
+</body>
+</html>
