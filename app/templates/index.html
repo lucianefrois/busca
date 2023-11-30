@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionários</title>
+    <title>Lista CRM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4caf50;
+            text-decoration: none;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+    <h1>LISTA CRM</h1>
+    
     <h1>Lista de Funcionários</h1>
     <ul>
         {% for i in funcionario %}
@@ -15,6 +64,100 @@
         {% endfor %}
     </ul>
 
-    <a href="{{ url_for('adicionar') }}">Adicionar Funcionário</a>
+    <h1>Lista de Clientes</h1>
+    <ul>
+        {% for cliente in cliente %}
+            <li>{{ cliente.id_cliente }}</li>
+            <li>{{ cliente.nome_cliente }}</li>
+            <li>{{ cliente.cpf_cliente }}</li>
+            <li>{{ cliente.email_cliente }}</li>
+            <li>{{ cliente.data_ultima_iteracao }}</li>
+            <li>{{ cliente.status_follow_up }}</li>
+            <li>{{ cliente.data_proximo_followup }}</li>  
+            <li>{{ cliente.descricao_ultima_iteracao }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Produtos</h1>
+    <ul>
+        {% for produto in produto %}
+            <li>{{ produto.id_produto }}</li>
+            <li>{{ produto.nome_produto }}</li>
+            <li>{{ produto.preco_produto }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Galpões</h1>
+    <ul>
+        {% for galpao in galpao %}
+            <li>{{ galpao.id_galpao }}</li>
+            <li>{{ galpao.local_estoque }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        {% for uma_tarefa in tarefa %}
+            <li>{{ uma_tarefa.id_tarefa }}</li>
+            <li>{{ uma_tarefa.data_tarefa }}</li>
+            <li>{{ uma_tarefa.nome_tarefa }}</li>
+            <li>{{ uma_tarefa.status_tarefa }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Estoques</h1>
+    <ul>
+        {% for estoque in estoque %}
+            <li>{{ estoque.id_estoque }}</li>
+            <li>{{ estoque.id_produto }}</li>
+            <li>{{ estoque.qtd_produto }}</li>
+            <li>{{ estoque.status_estoque }}</li>
+            <li>{{ estoque.id_galpao }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Funcionários Tarefa</h1>
+    <ul>
+        {% for funcTarefa in funcionario_tarefa %}
+            <li>{{ funcTarefa.id_tarefa }}</li>
+            <li>{{ funcTarefa.id_funcionario }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Histórico de Compra</h1>
+    <ul>
+        {% for historico in historico_compra %}
+            <li>{{ historico.id_compra }}</li>
+            <li>{{ historico.data_compra }}</li>
+            <li>{{ historico.id_cliente }}</li>
+            <li>{{ historico.id_produto }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Lista de Registros de Interação</h1>
+    <ul>
+        {% for r in registro_interacao %}
+            <li>{{ r.id_interacao }}</li>
+            <li>{{ r.id_cliente }}</li>
+            <li>{{ r.id_funcionario }}</li>
+            <li>{{ r.data_interacao }}</li>
+            <li>{{ r.tipo_interacao }}</li>
+            <li>{{ r.descricao_interacao }}</li>
+            <li>{{ r.registro_interacaocol }}</li>
+            <li>{{ r.etapa_followup }}</li>
+            <li>{{ r.status_followup }}</li>
+            <li>{{ r.data_prox_followup }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('adicionar_funcionario') }}">Adicionar Funcionário</a>
+    <a href="{{ url_for('adicionar_cliente') }}">Adicionar Cliente</a>
+    <a href="{{ url_for('adicionar_produto') }}">Adicionar Produto</a>
+    <a href="{{ url_for('adicionar_galpao') }}">Adicionar Galpão</a>
+    <a href="{{ url_for('adicionar_tarefa') }}">Adicionar Tarefa</a>
+    <a href="{{ url_for('adicionar_estoque') }}">Adicionar Estoque</a>
+    <a href="{{ url_for('adicionar_funcionario_tarefa') }}">Adicionar Funcionário Tarefa</a>
+    <a href="{{ url_for('historico_compra') }}">Adicionar Histórico de Compra</a>
+    <a href="{{ url_for('registro_interacao') }}">Adicionar Registro de Interação</a>
 </body>
 </html>

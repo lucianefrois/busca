@@ -1,4 +1,4 @@
 from app import app
 
-hh
+# o app é o main do aplicação
 app.run(debug=True)

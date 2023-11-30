@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Registro Interação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4caf50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="{{ url_for('registro_interacao') }}">
+        {{ form.csrf_token }}
+        <h1>Adicionar Registro Interação</h1>
+
+        <label for="id_interacao">{{ form.id_interacao.label }}</label>
+        {{ form.id_interacao(class="form-control", placeholder="ID da Interação") }}
+
+        <label for="id_cliente">{{ form.id_cliente.label }}</label>
+        {{ form.id_cliente(class="form-control", placeholder="ID do Cliente") }}
+
+        <label for="id_funcionario">{{ form.id_funcionario.label }}</label>
+        {{ form.id_funcionario(class="form-control", placeholder="ID do Funcionário") }}
+
+        <label for="data_interacao">{{ form.data_interacao.label }}</label>
+        {{ form.data_interacao(class="form-control", placeholder="Data da Interação") }}
+
+        <label for="tipo_interacao">{{ form.tipo_interacao.label }}</label>
+        {{ form.tipo_interacao(class="form-control", placeholder="Tipo de Interação") }}
+
+        <label for="descricao_interacao">{{ form.descricao_interacao.label }}</label>
+        {{ form.descricao_interacao(class="form-control", placeholder="Descrição da Interação") }}
+
+        <label for="registro_interacaocol">{{ form.registro_interacaocol.label }}</label>
+        {{ form.registro_interacaocol(class="form-control", placeholder="Registro de Interação") }}
+
+        <label for="etapa_followup">{{ form.etapa_followup.label }}</label>
+        {{ form.etapa_followup(class="form-control", placeholder="Etapa do Follow-up") }}
+
+        <label for="status_followup">{{ form.status_followup.label }}</label>
+        {{ form.status_followup(class="form-control", placeholder="Status do Follow-up") }}
+
+        <label for="data_prox_followup">{{ form.data_prox_followup.label }}</label>
+        {{ form.data_prox_followup(class="form-control", placeholder="Data do Próximo Follow-up") }}
+
+        <input type="submit" value="Adicionar Registro Interação">
+    </form>
+
+    <a href="{{ url_for('index') }}">Voltar para a Lista de Funcionários</a>
+</body>
+</html>
