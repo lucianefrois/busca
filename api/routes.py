@@ -1,4 +1,4 @@
-from api import app, db
+from api.app import app, db
 from flask import render_template, request, redirect, url_for
 from api.forms import FormFuncionario, FormCliente, FormProduto, FormGalpao, FormTarefa, FormEstoque, FormFuncionarioTarefa, FormHistoricoCompra, FormRegistroInteracao
 from api.models import Funcionario, Cliente, Produto, Galpao, Tarefa, Estoque, Funcionario_tarefa, Historico_compra, Registro_interacao
